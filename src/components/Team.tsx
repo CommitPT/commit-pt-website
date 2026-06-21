@@ -1,40 +1,35 @@
-'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
-import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 interface TeamMember {
   name: string
   role: string
   initials: string
-  shortBio: string
-  fullBio: string[]
+  bio: string[]
   photo?: string
+  whopUrl: string
+  linkedinUrl?: string
 }
 
 const members: TeamMember[] = [
   {
     name: 'Bruno Moisão',
-    role: 'Founder & Software Engineer',
+    role: 'Fundador & Engenheiro de Software',
     initials: 'BM',
-    shortBio:
-      'Software Engineer from Portugal with over 4 years of experience building products for international companies. Founded CommitPT to help developers learn, grow, and ship together.',
-    fullBio: [
-      'Bruno Moisão is a Software Engineer from Portugal with over 4 years of professional experience building software products for international companies and global audiences.',
-      "He holds a Bachelor's degree in Computer Science Engineering from the Autonomous University of Lisbon and has worked in international environments alongside teams distributed across different countries and cultures. Throughout his career, he has contributed to modern web applications, large-scale products, and fast-growing technology companies.",
-      'Alongside his professional career, Bruno founded CommitPT with the goal of creating a place where aspiring and experienced developers can learn, share knowledge, and grow together. Through the community, he regularly shares insights from real-world software engineering, career development, interviews, and the challenges of working in the tech industry.',
-      'His mission is simple: help developers accelerate their growth by learning from practical experience, building meaningful connections, and developing the skills needed to succeed in a competitive global market.',
+    bio: [
+      'O Bruno é Engenheiro de Software com mais de 4 anos de experiência a construir produtos para empresas internacionais. É licenciado em Ciências da Computação pela Universidade Autónoma de Lisboa, trabalhou em equipas distribuídas por vários países, e contribuiu para aplicações web modernas e produtos de larga escala em empresas tecnológicas em crescimento acelerado.',
+      'A par da sua carreira de engenharia, construiu uma audiência de programadores em torno de conteúdo real sobre engenharia de software e desenvolvimento de carreira — porque a distância entre "aprender a programar" e "crescer numa carreira de engenharia real" era algo que ninguém estava a abordar com honestidade.',
+      'Fundou a CommitPT porque experienciou em primeira mão o quão mais rápido os programadores crescem quando param de programar em isolamento — e o quão difícil é encontrar esse ambiente em Portugal. Tudo nesta comunidade vem do que ele desejava que existisse quando estava a começar.',
     ],
+    photo: '/bruno.jpg',
+    whopUrl: 'https://whop.com/commitpt-709e/commit-plus',
+    linkedinUrl: 'https://www.linkedin.com/in/brunomoisao',
   },
 ]
 
 function MemberCard({ member }: { member: TeamMember }) {
-  const [expanded, setExpanded] = useState(false)
-
   return (
-    <div className="grid gap-8 lg:grid-cols-[280px_1fr] lg:items-start">
-      {/* Photo */}
+    <div className="grid gap-8 lg:grid-cols-[280px_1fr] lg:items-center">
       <div className="mx-auto w-full max-w-[280px] lg:mx-0">
         {member.photo ? (
           <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-border">
@@ -47,42 +42,47 @@ function MemberCard({ member }: { member: TeamMember }) {
         )}
       </div>
 
-      {/* Content */}
       <div className="space-y-4">
         <div>
-          <h3 className="text-2xl font-bold text-text-primary">{member.name}</h3>
+          <div className="flex items-center gap-3">
+            <h3 className="text-2xl font-bold text-text-primary">{member.name}</h3>
+            {member.linkedinUrl && (
+              <a
+                href={member.linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="text-muted hover:text-git-add transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+            )}
+          </div>
           <p className="mt-1 font-mono text-sm text-git-amber">{member.role}</p>
         </div>
 
         <div className="space-y-3 text-muted">
-          {expanded ? (
-            member.fullBio.map((paragraph, i) => <p key={i}>{paragraph}</p>)
-          ) : (
-            <p>{member.shortBio}</p>
-          )}
+          {member.bio.map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 pt-1">
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-git-add transition-colors"
-          >
-            {expanded ? (
-              <>
-                Show less <ChevronUp size={15} />
-              </>
-            ) : (
-              <>
-                Read more <ChevronDown size={15} />
-              </>
-            )}
-          </button>
-
+        <div className="flex flex-wrap items-center gap-4 pt-2">
           <a
-            href="#hero"
-            className="group inline-flex items-center gap-2 rounded-md border border-git-add px-4 py-2 text-sm font-semibold text-git-add hover:bg-git-add hover:text-ink transition-colors"
+            href={member.whopUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2 rounded-md bg-git-add px-5 py-2.5 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
           >
-            Get in touch
+            Entra na comunidade que o Bruno construiu
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </a>
         </div>
@@ -93,15 +93,18 @@ function MemberCard({ member }: { member: TeamMember }) {
 
 export default function Team() {
   return (
-    <section id="team" className="border-t border-border bg-ink-light">
+    <section id="team" className="border-t border-border bg-ink">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-12 max-w-2xl">
-          <span className="font-mono text-sm font-bold text-git-amber">04 // The Team</span>
+          <span className="font-mono text-sm font-bold text-git-amber">
+            04 // Quem Está Por Detrás Disto
+          </span>
           <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
-            The people behind CommitPT.
+            Construído por alguém que já esteve onde estás.
           </h2>
           <p className="mt-4 text-muted">
-            Built by developers, for developers. Here&apos;s who&apos;s driving this forward.
+            A CommitPT existe porque o Bruno não conseguiu encontrar uma comunidade que levasse o
+            crescimento dos programadores a sério. Por isso criou uma.
           </p>
         </div>
 
