@@ -39,8 +39,10 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#join"
-            className="rounded-md bg-git-add px-4 py-2 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
+            href="https://whop.com/commitpt-709e/commit-plus"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-md bg-git-add px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-git-add-hover"
           >
             Entrar Agora
           </a>

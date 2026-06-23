@@ -64,14 +64,14 @@ export default function Features() {
             Dá hoje o primeiro passo rumo à vida dos teus sonhos.
           </h3>
           <p className="mx-auto mt-3 max-w-xl text-muted">
-            Junta-te às mais de 200 pessoas que já fazem parte da comunidade.
+            Junta-te às mais de 250 pessoas que já fazem parte da comunidade.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href="https://whop.com/commitpt-709e/commit-plus"
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
+              className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink hover:bg-git-add-hover transition-colors"
             >
               Adere já
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

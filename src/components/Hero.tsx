@@ -6,28 +6,28 @@ export default function Hero() {
       <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-ink-light px-3 py-1 font-mono text-xs text-git-add">
+            <div className="hero-enter-1 inline-flex items-center gap-2 rounded-full border border-border bg-ink-light px-3 py-1 font-mono text-xs text-git-add">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-git-add opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-git-add"></span>
               </span>
-              200+ programadores portugueses já dentro
+              250+ programadores portugueses já dentro
             </div>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
+            <h1 className="hero-enter-2 text-4xl font-bold leading-tight tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
               A comunidade que transforma programadores em{' '}
               <span className="font-mono text-git-add">engenheiros de topo.</span>
             </h1>
-            <p className="max-w-lg text-lg text-muted">
+            <p className="hero-enter-3 max-w-lg text-lg text-muted">
               Ser um engenheiro de topo não é só ser bom tecnicamente. É saber colaborar, receber
               críticas, comunicar bem e trabalhar em equipa. A CommitPT é o ambiente mais próximo de
               uma empresa real que vais encontrar — antes de estares numa.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="hero-enter-4 flex flex-wrap gap-4">
               <a
                 href="https://whop.com/commitpt-709e/commit-plus"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
+                className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-git-add-hover"
               >
                 Junta-te à Comunidade
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -36,16 +36,16 @@ export default function Hero() {
                 href="https://discord.gg/yGAbprCBrT"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-border bg-ink-light px-6 py-3 text-sm font-semibold text-text-primary hover:border-git-add hover:text-git-add transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-ink-light px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-git-add hover:text-git-add"
               >
                 <MessageCircle size={16} />
                 Experimenta o Discord Grátis
               </a>
             </div>
-            <div className="flex flex-wrap gap-6 text-sm text-muted">
+            <div className="hero-enter-5 flex flex-wrap gap-6 text-sm text-muted">
               <div className="flex items-center gap-2">
                 <Users size={18} className="text-git-add" />
-                <span>200+ membros ativos</span>
+                <span>250+ membros ativos</span>
               </div>
               <div className="flex items-center gap-2">
                 <Code size={18} className="text-git-amber" />
@@ -53,7 +53,9 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <Terminal />
+          <div className="hero-enter-6">
+            <Terminal />
+          </div>
         </div>
       </div>
     </section>

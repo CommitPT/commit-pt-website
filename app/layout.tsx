@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     images: ['/commit_3.png'],
   },
   icons: {
-    icon: '/commit_3.png',
-    apple: '/commit_3.png',
+    icon: '/commit_icon.png',
+    apple: '/commit_icon.png',
   },
   alternates: {
     canonical: BASE_URL,
@@ -77,6 +77,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} bg-ink text-text-primary antialiased`}
       >
+        {/* Ambient gradient orbs — fixed, behind everything */}
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+          <div className="orb-1 absolute -left-64 -top-64 h-[800px] w-[800px] rounded-full bg-git-add/[0.055] blur-[140px]" />
+          <div className="orb-2 absolute -right-80 top-[35%] h-[700px] w-[700px] rounded-full bg-git-add/[0.04] blur-[120px]" />
+          <div className="orb-3 absolute bottom-[-10%] left-[15%] h-[600px] w-[600px] rounded-full bg-git-add/[0.045] blur-[100px]" />
+        </div>
         {children}
       </body>
     </html>

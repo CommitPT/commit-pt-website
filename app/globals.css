@@ -21,5 +21,113 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3fb950;
+  background: #008afd;
+}
+
+/* ── Background gradient orb animations ─────────────────────────── */
+
+@keyframes orb-drift-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(60px, -45px) scale(1.08);
+  }
+  66% {
+    transform: translate(-35px, 30px) scale(0.94);
+  }
+}
+
+@keyframes orb-drift-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-55px, 40px) scale(1.06);
+  }
+  66% {
+    transform: translate(45px, -28px) scale(0.96);
+  }
+}
+
+@keyframes orb-drift-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, 50px) scale(1.05);
+  }
+}
+
+.orb-1 {
+  animation: orb-drift-1 20s ease-in-out infinite;
+}
+.orb-2 {
+  animation: orb-drift-2 26s ease-in-out infinite;
+}
+.orb-3 {
+  animation: orb-drift-3 17s ease-in-out infinite;
+}
+
+/* ── Hero entry animations ────────────────────────────────────────── */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter-1 {
+  animation: fade-in-up 0.7s ease 0.05s both;
+}
+.hero-enter-2 {
+  animation: fade-in-up 0.7s ease 0.18s both;
+}
+.hero-enter-3 {
+  animation: fade-in-up 0.7s ease 0.3s both;
+}
+.hero-enter-4 {
+  animation: fade-in-up 0.7s ease 0.42s both;
+}
+.hero-enter-5 {
+  animation: fade-in-up 0.7s ease 0.55s both;
+}
+.hero-enter-6 {
+  animation: fade-in-up 0.7s ease 0.7s both;
+}
+
+/* ── Marquee pause on hover ───────────────────────────────────────── */
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .orb-1,
+  .orb-2,
+  .orb-3,
+  .hero-enter-1,
+  .hero-enter-2,
+  .hero-enter-3,
+  .hero-enter-4,
+  .hero-enter-5,
+  .hero-enter-6 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .pause-on-hover {
+    animation-play-state: paused !important;
+  }
 }

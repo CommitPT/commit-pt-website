@@ -10,7 +10,8 @@ module.exports = {
         border: '#30363D',
         muted: '#8B949E',
         'text-primary': '#F0F4F8',
-        'git-add': '#07ecec',
+        'git-add': '#008afd',
+        'git-add-hover': '#0070d4',
         'git-del': '#F85149',
         'git-amber': '#F0883E',
         syntax: {
@@ -23,6 +24,15 @@ module.exports = {
       fontFamily: {
         mono: ['var(--font-geist-mono)', 'monospace'],
         sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 45s linear infinite',
       },
     },
   },

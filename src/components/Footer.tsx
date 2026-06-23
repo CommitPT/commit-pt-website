@@ -18,7 +18,7 @@ export default function Footer() {
               href="https://whop.com/commitpt-709e/commit-plus"
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-md bg-git-add px-5 py-2.5 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
+              className="group inline-flex items-center gap-2 rounded-md bg-git-add px-5 py-2.5 text-sm font-semibold text-ink hover:bg-git-add-hover transition-colors"
             >
               Adere já
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />

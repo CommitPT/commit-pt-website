@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Afonso",
+    "discordUsername": "@afonsojanu",
+    "dateOfReview": "21-06-2026",
+    "stars": 5,
+    "review": "Sou estudante de Engenharia Informática em Lisboa e entrei na comunidade para aprender e esclarecer dúvidas. Tem sido uma experiência excelente. Recomendo tanto a quem está a começar como a quem já tem experiência e procura apoio e partilha de conhecimento."
+  },
+  {
+    "name": "Jeovani",
+    "discordUsername": "@jc_dsc",
+    "dateOfReview": "21-06-2026",
+    "stars": 5,
+    "review": "Entrei para fazer networking, aprender e trocar ideias. Graças às conexões que fiz aqui, consegui o meu primeiro emprego na área. Há pessoas de vários níveis e áreas, o que torna a comunidade um excelente espaço para crescer e criar oportunidades."
+  },
+  {
+    "name": "Sara",
+    "discordUsername": "@saralondreira",
+    "dateOfReview": "21-06-2026",
+    "stars": 5,
+    "review": "Estou na comunidade desde o início e tem sido uma ajuda enorme no meu percurso. Entre a disponibilidade dos membros, o conhecimento partilhado e o apoio constante, é um excelente local para aprender, fazer networking e evoluir na área tecnológica."
+  },
+  {
+    "name": "Rafael",
+    "discordUsername": "@rafaelj13",
+    "dateOfReview": "21-06-2026",
+    "stars": 5,
+    "review": "Entrei na comunidade em novembro de 2025 e, desde o primeiro dia, senti um ambiente acolhedor e sem julgamentos. Aqui conheci pessoas da área, fiz networking e participei em projetos e desafios que me ajudaram a aprofundar os meus conhecimentos em programação e regras de negócio. O apoio dos membros e as calls da comunidade tiveram um impacto real no meu crescimento académico e profissional."
+  }
+]
