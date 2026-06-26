@@ -8,9 +8,26 @@ import { ArrowRight } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Contribuidores — CommitPT',
   description:
-    'Conhece as pessoas que contribuem ativamente para a comunidade CommitPT. Engenheiros de software portugueses a construir em público.',
+    'Os programadores que tornam a CommitPT possível. Mais de 20 contribuidores ativos a partilhar conhecimento, fazer code reviews e construir em público.',
   alternates: {
     canonical: 'https://www.commitpt.com/contributors',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.commitpt.com/contributors',
+    title: 'Contribuidores — CommitPT',
+    description:
+      'Os programadores que tornam a CommitPT possível. Mais de 20 contribuidores ativos a partilhar conhecimento, fazer code reviews e construir em público.',
+    siteName: 'CommitPT',
+    images: [{ url: '/commit_3.png', width: 512, height: 512, alt: 'CommitPT' }],
+    locale: 'pt_PT',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Contribuidores — CommitPT',
+    description:
+      'Os programadores que tornam a CommitPT possível. Mais de 20 contribuidores ativos a partilhar conhecimento, fazer code reviews e construir em público.',
+    images: ['/commit_3.png'],
   },
 }
 
@@ -27,12 +44,12 @@ export default function ContributorsPage() {
               {'// Contribuidores'}
             </span>
             <h1 className="mt-3 text-4xl font-bold text-text-primary sm:text-5xl">
-              Quem faz a CommitPT acontecer.
+              As pessoas por trás da CommitPT.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted">
-              A CommitPT tem mais de 20 contribuidores ativos. Abaixo encontras os principais —
-              pessoas que dedicam o seu tempo, conhecimento e energia para que esta comunidade seja
-              melhor para todos.
+              Mais de 20 programadores que contribuem ativamente — com code reviews, workshops,
+              sessões de co-working e muito mais. Aqui podes conhecê-los, ver o seu trabalho e
+              contactá-los diretamente.
             </p>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-ink-light px-3 py-1 font-mono text-xs text-muted">
@@ -66,8 +83,7 @@ export default function ContributorsPage() {
               Queres aparecer aqui?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted">
-              Entra na comunidade, começa a contribuir, e passa a fazer parte de quem constrói a
-              CommitPT.
+              Entra na comunidade e começa a contribuir. Simples assim.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
