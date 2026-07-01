@@ -47,5 +47,14 @@
     "bio": "Biografia em atualização. Em breve poderás conhecer melhor o seu percurso e experiência.",
     "githubUsername": "github",
     "linkedin": "https://www.linkedin.com/in/tomas-mbernardino/"
+  },
+  {
+    "name": "Sandro Alves",
+    "role": "Software Developer",
+    "bio": "Desenvolvedor de software com um grande interesse por programação, administração de sistemas e inteligência artificial.",
+    "githubUsername": "mrpotato5555",
+    "github": "https://git.vortexia.wiki/explore/repos",
+    "website": "https://vortexia.wiki",
+    "email": "sandro@vortexia.wiki"
   }
 ]
