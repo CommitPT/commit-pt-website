@@ -4,6 +4,7 @@ import Footer from '@/src/components/Footer'
 import ContributorCard, { type Contributor } from '@/src/components/ContributorCard'
 import contributorsData from '@/src/contributors.json'
 import { ArrowRight } from 'lucide-react'
+import { buttonVariants } from '@commitpt/design-system'
 
 export const metadata: Metadata = {
   title: 'Contribuidores — CommitPT',
@@ -35,27 +36,25 @@ const contributors: Contributor[] = contributorsData
 
 export default function ContributorsPage() {
   return (
-    <div className="min-h-screen bg-ink">
+    <div className="min-h-screen bg-background">
       <Header />
       <main>
         <section className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
-            <span className="font-mono text-sm font-bold text-git-amber">
-              {'// Contribuidores'}
-            </span>
-            <h1 className="mt-3 text-4xl font-bold text-text-primary sm:text-5xl">
+            <span className="font-mono text-sm font-bold text-warning">{'// Contribuidores'}</span>
+            <h1 className="mt-3 text-4xl font-bold text-foreground sm:text-5xl">
               As pessoas por trás da CommitPT.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-muted">
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Mais de 20 programadores que contribuem ativamente — com code reviews, workshops,
               sessões de co-working e muito mais. Aqui podes conhecê-los, ver o seu trabalho e
               contactá-los diretamente.
             </p>
 
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-ink-light px-3 py-1 font-mono text-xs text-muted">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs text-muted-foreground">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-git-add opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-git-add"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
               </span>
               20+ contribuidores ativos
             </div>
@@ -63,8 +62,8 @@ export default function ContributorsPage() {
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
-          <p className="mb-8 font-mono text-sm text-muted">
-            A mostrar os <span className="text-git-add">top {contributors.length}</span>{' '}
+          <p className="mb-8 font-mono text-sm text-muted-foreground">
+            A mostrar os <span className="text-primary">top {contributors.length}</span>{' '}
             contribuidores
           </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -74,15 +73,13 @@ export default function ContributorsPage() {
           </div>
         </section>
 
-        <section className="border-t border-border bg-ink-light">
+        <section className="border-t border-border bg-surface">
           <div className="mx-auto max-w-6xl px-6 py-20 text-center lg:py-28">
-            <span className="font-mono text-sm font-bold text-git-amber">
-              {'// Junta-te a nós'}
-            </span>
-            <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
+            <span className="font-mono text-sm font-bold text-warning">{'// Junta-te a nós'}</span>
+            <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
               Queres aparecer aqui?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-muted">
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
               Entra na comunidade e começa a contribuir. Simples assim.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -90,7 +87,7 @@ export default function ContributorsPage() {
                 href="https://whop.com/commitpt-709e/commit-plus"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-[#4bc45d]"
+                className={buttonVariants({ size: 'lg' })}
               >
                 Entrar no Whop
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -99,7 +96,7 @@ export default function ContributorsPage() {
                 href="https://discord.gg/yGAbprCBrT"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-git-add hover:text-git-add"
+                className={buttonVariants({ variant: 'outline', size: 'lg' })}
               >
                 Entrar no Discord
               </a>

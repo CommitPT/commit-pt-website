@@ -1,4 +1,12 @@
-import { CheckCircle, MessageSquare, Calendar, Trophy, BookOpen, LucideIcon } from 'lucide-react'
+import {
+  TrendingUp,
+  Lightbulb,
+  BarChart2,
+  MessageCircle,
+  Map,
+  Award,
+  LucideIcon,
+} from 'lucide-react'
 
 interface Benefit {
   icon: LucideIcon
@@ -8,62 +16,61 @@ interface Benefit {
 
 const benefits: Benefit[] = [
   {
-    icon: CheckCircle,
-    title: 'Para de abandonar projetos a meio',
-    desc: 'Publica o teu objetivo semanal à segunda-feira. O teu grupo faz check-in à sexta. Projetos que morrem em isolamento sobrevivem quando há engenheiros experientes a acompanhar.',
+    icon: TrendingUp,
+    title: 'Transformas intenção em progresso concreto',
+    desc: 'Deixas de acumular planos e começas a acumular resultados. A diferença não é motivação — é ter contexto, estrutura e as pessoas certas à volta no momento certo.',
   },
   {
-    icon: MessageSquare,
-    title: 'Recebe feedback de engenheiros que já fizeram ship',
-    desc: 'Partilha o teu PR ou decisão de arquitetura e recebe feedback honesto e experiente — não o silêncio do Stack Overflow nem conselhos genéricos.',
+    icon: Lightbulb,
+    title: 'Tomas decisões técnicas com mais confiança',
+    desc: 'Com acesso a perspetivas de quem já enfrentou os mesmos problemas em contexto profissional, as tuas escolhas de arquitectura deixam de ser suposições e passam a ser decisões fundamentadas.',
   },
   {
-    icon: Calendar,
-    title: 'Constrói em público, faz ship a tempo',
-    desc: 'Sessões de co-working ao vivo onde os membros constroem juntos e fazem commit antes de sair. Responsabilidade em tempo real, não apenas um canal que ninguém lê.',
+    icon: BarChart2,
+    title: 'Constróis uma consistência visível',
+    desc: 'Em vez de picos de produtividade seguidos de semanas em branco, desenvolves um ritmo sustentável — um historial de evolução contínua que qualquer empregador pode ver e valorizar.',
   },
   {
-    icon: Trophy,
-    title: 'Constrói a consistência que te contrata',
-    desc: 'Desafios semanais e commit streaks que transformam "faço amanhã" num historial que podes mostrar a empregadores.',
+    icon: MessageCircle,
+    title: 'Aprendes a comunicar o que constróis',
+    desc: 'Começas a explicar as tuas decisões com clareza, a justificar escolhas técnicas e a colaborar de forma eficaz. Competências que te distinguem muito além do código que escreves.',
   },
   {
-    icon: BookOpen,
-    title: 'Ignora o ruído, fica com o que importa',
-    desc: 'Roadmaps validados, templates usados por engenheiros na indústria, e workshops sobre as competências que fazem as carreiras avançar — não mais uma playlist do YouTube.',
+    icon: Map,
+    title: 'Percebes o mercado por dentro',
+    desc: 'Deixas de navegar às cegas. Com acesso a profissionais que trabalham no mercado todos os dias, perceberes o que as empresas valorizam, como funcionam as entrevistas e o que diferencia quem cresce.',
   },
   {
-    icon: MessageSquare,
-    title: 'Desenvolve as soft skills que te distinguem',
-    desc: 'Comunicar ideias, dar feedback construtivo, colaborar sob pressão — treinas tudo isto aqui. É o mais próximo de um ambiente de empresa real que vais ter antes de estares numa.',
+    icon: Award,
+    title: 'Constróis provas reais de evolução',
+    desc: 'Projetos em produção, código revisto por profissionais, participação em iniciativas reais. Não um certificado — um percurso que fala por si a qualquer empresa.',
   },
 ]
 
 export default function About() {
   return (
-    <section id="about" className="border-y border-border bg-ink-light">
+    <section id="about" className="border-y border-border bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-12 max-w-2xl">
-          <span className="font-mono text-sm font-bold text-git-amber">01 // O Que Recebes</span>
-          <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
-            Competências técnicas são só metade do caminho.
+          <span className="font-mono text-sm font-bold text-warning">02 // O Que Muda</span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
+            O que muda quando deixas de evoluir sozinho.
           </h2>
-          <p className="mt-4 text-muted">
-            Os melhores engenheiros sabem colaborar, dar e receber feedback, e trabalhar bem com
-            outros. A CommitPT desenvolve as duas partes — porque é isso que o mercado realmente
-            valoriza.
+          <p className="mt-4 text-muted-foreground">
+            Entrar numa comunidade certa não é só ter mais pessoas à volta. É ter acesso a contexto,
+            perspetiva e estrutura que tornam o teu crescimento inevitável.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((b) => (
             <div
               key={b.title}
-              className="group relative rounded-lg border border-border bg-ink p-6 hover:border-git-add transition-colors"
+              className="group relative rounded-lg border border-border bg-background p-6 hover:border-primary transition-colors"
             >
-              <div className="absolute left-0 top-0 h-full w-1 rounded-l-lg bg-git-add opacity-0 transition-opacity group-hover:opacity-100" />
-              <b.icon className="mb-4 h-6 w-6 text-git-add" />
-              <h3 className="mb-2 text-lg font-semibold text-text-primary">{b.title}</h3>
-              <p className="text-sm text-muted">{b.desc}</p>
+              <div className="absolute left-0 top-0 h-full w-1 rounded-l-lg bg-primary opacity-0 transition-opacity group-hover:opacity-100" />
+              <b.icon className="mb-4 h-6 w-6 text-primary" />
+              <h3 className="mb-2 text-lg font-semibold text-foreground">{b.title}</h3>
+              <p className="text-sm text-muted-foreground">{b.desc}</p>
             </div>
           ))}
         </div>

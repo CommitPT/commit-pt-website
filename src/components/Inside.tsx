@@ -1,78 +1,69 @@
-import {
-  Video,
-  GitPullRequest,
-  Briefcase,
-  Users,
-  BookOpen,
-  MessageSquare,
-  LucideIcon,
-} from 'lucide-react'
+import { BookOpen, EyeOff, Clock, FolderOpen, Unlink, Compass, LucideIcon } from 'lucide-react'
 
-interface Activity {
+interface Problem {
   icon: LucideIcon
   title: string
   desc: string
 }
 
-const activities: Activity[] = [
-  {
-    icon: Video,
-    title: 'Sessões ao Vivo',
-    desc: 'Chamadas regulares onde os membros partilham o que estão a construir, discutem desafios técnicos e recebem feedback em tempo real.',
-  },
-  {
-    icon: GitPullRequest,
-    title: 'Revisões de Código',
-    desc: 'Partilha o teu PR ou arquitetura e recebe feedback honesto. Aprendes a dar e a receber críticas construtivas — uma das soft skills mais valorizadas no mercado.',
-  },
-  {
-    icon: Briefcase,
-    title: 'Discussões de Carreira',
-    desc: 'De entrevistas a negociação de salário — abordamos os temas que as faculdades não ensinam e que fazem diferença no mercado.',
-  },
-  {
-    icon: Users,
-    title: 'Networking Real',
-    desc: 'Colabora em projetos reais com outros membros, pratica trabalho em equipa e cria ligações com programadores portugueses dentro e fora do país.',
-  },
+const problems: Problem[] = [
   {
     icon: BookOpen,
-    title: 'Recursos e Roadmaps',
-    desc: 'Acesso a roadmaps validados, templates e recursos curados por profissionais da área — sem o ruído das playlists infinitas.',
+    title: 'Aprendes muito, constróis pouco',
+    desc: 'Segues tutoriais, entendes os conceitos, resolves os exercícios. Mas quando abres um projeto em branco, o bloqueio aparece. O conhecimento está lá — só não é ainda verdadeiramente teu.',
   },
   {
-    icon: MessageSquare,
-    title: 'Suporte Contínuo',
-    desc: 'Tens uma dúvida técnica, um bloqueio ou só queres saber se estás no caminho certo? A comunidade está sempre disponível.',
+    icon: EyeOff,
+    title: 'Sem feedback, repetes os mesmos erros',
+    desc: 'Há hábitos de código que estás a cultivar há meses que nunca devias ter aprendido. Sem ninguém que os identifique, nunca saberás que existem — até que alguém numa entrevista os aponte.',
+  },
+  {
+    icon: Clock,
+    title: 'Sem accountability, tudo fica para amanhã',
+    desc: 'Planeias trabalhar no projeto este fim-de-semana. Surge algo. Depois outra coisa. Como não há ninguém a contar contigo, adiar não tem consequências — até perceberes que passaram meses.',
+  },
+  {
+    icon: FolderOpen,
+    title: 'Projetos a meio que nunca chegam a lado nenhum',
+    desc: 'A pasta de projetos está cheia. Nenhum em produção. Cada ideia nova parece mais urgente do que terminar o que já começaste — e o ciclo repete-se indefinidamente.',
+  },
+  {
+    icon: Unlink,
+    title: 'Soft skills não se treinam em tutoriais',
+    desc: 'Comunicar uma decisão técnica, dar feedback útil, trabalhar em equipa sob pressão — são as competências que mais distinguem quem evolui. E não há curso que as ensine.',
+  },
+  {
+    icon: Compass,
+    title: 'O mercado é opaco quando estás de fora',
+    desc: 'Não sabes o que as empresas realmente procuram. Processos de entrevista, progressão salarial, transições de carreira — tudo parece uma caixa negra sem acesso a quem já passou por isso.',
   },
 ]
 
 export default function Inside() {
   return (
-    <section className="border-b border-border bg-ink">
+    <section className="border-b border-border bg-background">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-12 max-w-2xl">
-          <span className="font-mono text-sm font-bold text-git-amber">
-            02 // O Que Acontece Cá Dentro
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
-            O que encontras quando entras.
+          <span className="font-mono text-sm font-bold text-warning">01 // O Problema</span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
+            Crescer como engenheiro é difícil.{' '}
+            <span className="text-muted-foreground">Sozinho, é quase impossível.</span>
           </h2>
-          <p className="mt-4 text-muted">
-            Não é só um servidor de Discord. É o ambiente mais próximo de uma empresa real que vais
-            encontrar — onde desenvolves competências técnicas e soft skills em simultâneo.
+          <p className="mt-4 text-muted-foreground">
+            A maioria dos programadores está presa num ciclo que não reconhece. Mais um tutorial.
+            Mais um projeto a meio. Mais uma semana sem evoluir de verdade.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {activities.map((a) => (
+          {problems.map((p) => (
             <div
-              key={a.title}
-              className="group relative rounded-lg border border-border bg-ink-light p-6 hover:border-git-add transition-colors"
+              key={p.title}
+              className="group relative rounded-lg border border-border bg-surface p-6 hover:border-destructive transition-colors"
             >
-              <div className="absolute left-0 top-0 h-full w-1 rounded-l-lg bg-git-add opacity-0 transition-opacity group-hover:opacity-100" />
-              <a.icon className="mb-4 h-6 w-6 text-git-add" />
-              <h3 className="mb-2 text-lg font-semibold text-text-primary">{a.title}</h3>
-              <p className="text-sm text-muted">{a.desc}</p>
+              <div className="absolute left-0 top-0 h-full w-1 rounded-l-lg bg-destructive opacity-0 transition-opacity group-hover:opacity-100" />
+              <p.icon className="mb-4 h-6 w-6 text-destructive" />
+              <h3 className="mb-2 text-lg font-semibold text-foreground">{p.title}</h3>
+              <p className="text-sm text-muted-foreground">{p.desc}</p>
             </div>
           ))}
         </div>

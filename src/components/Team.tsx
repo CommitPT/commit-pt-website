@@ -1,5 +1,8 @@
-import Image from 'next/image'
+'use client'
+
+import { Button } from '@commitpt/design-system'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 interface TeamMember {
   name: string
@@ -9,6 +12,8 @@ interface TeamMember {
   photo?: string
   whopUrl: string
   linkedinUrl?: string
+  instagramUrl?: string
+  tiktokUrl?: string
 }
 
 const members: TeamMember[] = [
@@ -17,13 +22,16 @@ const members: TeamMember[] = [
     role: 'Fundador & Engenheiro de Software',
     initials: 'BM',
     bio: [
-      'Engenheiro de Software com mais de 4 anos de experiência a construir produtos para empresas internacionais. Licenciado em Ciências da Computação pela Universidade Autónoma de Lisboa, já trabalhou em equipas distribuídas por vários países e contribuiu para produtos de larga escala em empresas tecnológicas em crescimento acelerado.',
-      'Ao longo da carreira, construiu uma audiência de programadores em torno de conteúdo real sobre engenharia de software e desenvolvimento de carreira — porque a distância entre "aprender a programar" e "crescer numa carreira de engenharia real" era um problema que ninguém estava a resolver com honestidade.',
-      'Fundou a CommitPT porque experienciou em primeira mão o quão mais rápido os programadores crescem quando param de trabalhar em isolamento. Tudo o que existe nesta comunidade vem do que ele desejava ter tido acesso quando estava a começar.',
+      'Engenheiro de Software com mais de 4 anos de experiência a desenvolver produtos utilizados por milhares de utilizadores em empresas internacionais. Licenciado em Engenharia Informática pela Universidade Autónoma de Lisboa, trabalhou em equipas distribuídas por vários países e participou no desenvolvimento de produtos tecnológicos em ambientes de elevada exigência.',
+      'Ao longo dos últimos anos, partilhou conhecimento sobre Engenharia de Software e desenvolvimento de carreira nas redes sociais, reunindo uma comunidade com mais de 18.000 seguidores. Através dos seus conteúdos, ajudou milhares de programadores a preparar entrevistas, evoluir tecnicamente e tomar melhores decisões na carreira.',
+      'Em 2025 fundou a CommitPT, uma comunidade portuguesa dedicada à Engenharia de Software que reúne centenas de programadores de diferentes níveis de experiência. O objetivo nunca foi criar mais um servidor de Discord ou vender um curso, mas sim construir um espaço onde as pessoas possam aprender em conjunto, receber feedback, colaborar em projetos e crescer mais depressa do que cresceriam sozinhas.',
+      'Hoje, a CommitPT é a materialização daquilo que sentiu faltar quando estava no início da carreira: uma comunidade ativa, com pessoas experientes, focada na prática, na colaboração e na evolução contínua.',
     ],
     photo: '/bruno.jpg',
     whopUrl: 'https://whop.com/commitpt-709e/commit-plus',
     linkedinUrl: 'https://www.linkedin.com/in/brunomoisao',
+    instagramUrl: 'https://www.instagram.com/brumoisao/',
+    tiktokUrl: 'https://www.tiktok.com/@brumoisao2',
   },
 ]
 
@@ -36,8 +44,8 @@ function MemberCard({ member }: { member: TeamMember }) {
             <Image src={member.photo} alt={member.name} fill className="object-cover" />
           </div>
         ) : (
-          <div className="flex aspect-square w-full items-center justify-center rounded-lg border border-border bg-ink-light">
-            <span className="font-mono text-5xl font-bold text-git-add">{member.initials}</span>
+          <div className="flex aspect-square w-full items-center justify-center rounded-lg border border-border bg-surface">
+            <span className="font-mono text-5xl font-bold text-primary">{member.initials}</span>
           </div>
         )}
       </div>
@@ -45,14 +53,14 @@ function MemberCard({ member }: { member: TeamMember }) {
       <div className="space-y-4">
         <div>
           <div className="flex items-center gap-3">
-            <h3 className="text-2xl font-bold text-text-primary">{member.name}</h3>
+            <h3 className="text-2xl font-bold text-foreground">{member.name}</h3>
             {member.linkedinUrl && (
               <a
                 href={member.linkedinUrl}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="text-muted hover:text-git-add transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,26 +73,59 @@ function MemberCard({ member }: { member: TeamMember }) {
                 </svg>
               </a>
             )}
+            {member.instagramUrl && (
+              <a
+                href={member.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+            )}
+            {member.tiktokUrl && (
+              <a
+                href={member.tiktokUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="TikTok"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
+                </svg>
+              </a>
+            )}
           </div>
-          <p className="mt-1 font-mono text-sm text-git-amber">{member.role}</p>
+          <p className="mt-1 font-mono text-sm text-warning">{member.role}</p>
         </div>
 
-        <div className="space-y-3 text-muted">
+        <div className="space-y-3 text-muted-foreground">
           {member.bio.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 pt-2">
-          <a
-            href={member.whopUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 rounded-md bg-git-add px-5 py-2.5 text-sm font-semibold text-ink hover:bg-[#4bc45d] transition-colors"
-          >
+        <div className="flex justify-center lg:justify-start pt-2">
+          <Button onClick={() => window.open(member.whopUrl, '_blank')}>
             Entra na comunidade que o Bruno construiu
-            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-          </a>
+            <ArrowRight size={14} />
+          </Button>
         </div>
       </div>
     </div>
@@ -93,14 +134,14 @@ function MemberCard({ member }: { member: TeamMember }) {
 
 export default function Team() {
   return (
-    <section id="team" className="border-t border-border bg-ink">
+    <section id="team" className="border-t border-border bg-background">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-12 max-w-2xl">
-          <span className="font-mono text-sm font-bold text-git-amber">04 // O Fundador</span>
-          <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
+          <span className="font-mono text-sm font-bold text-warning">04 // O Fundador</span>
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
             Criado por alguém que esteve onde tu estás.
           </h2>
-          <p className="mt-4 text-muted">
+          <p className="mt-4 text-muted-foreground">
             Bruno não construiu a CommitPT para ter uma audiência. Construiu-a porque precisava dela
             — e não existia.
           </p>

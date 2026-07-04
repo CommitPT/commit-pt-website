@@ -2,36 +2,203 @@
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { Button } from '@commitpt/design-system'
 
 interface FaqItem {
   q: string
-  a: string
+  a: React.ReactNode
 }
 
 const faqs: FaqItem[] = [
   {
     q: 'A comunidade é só para programadores experientes?',
-    a: 'Não. A CommitPT foi criada a pensar em todos os níveis — desde quem está a começar até profissionais com anos de experiência. O importante é teres vontade de crescer e contribuir.',
+    a: (
+      <>
+        <p>
+          Não. A CommitPT tem membros em todos os níveis — desde estudantes e programadores em
+          início de carreira até engenheiros com anos de experiência em empresas internacionais.
+        </p>
+        <p>
+          Isso é precisamente o que torna a comunidade útil. Quando tens dúvidas, há alguém que já
+          passou pelo mesmo. Quando já sabes alguma coisa, partilhares esse conhecimento também te
+          faz crescer.
+        </p>
+        <p>
+          O único requisito é teres vontade de aprender e de contribuir para o crescimento dos
+          outros.
+        </p>
+      </>
+    ),
   },
   {
-    q: 'Que tipo de conteúdo encontro dentro da comunidade?',
-    a: 'Sessões ao vivo, revisões de código, discussões de carreira, roadmaps, recursos técnicos e uma comunidade ativa no Discord onde podes fazer perguntas e colaborar com outros programadores.',
+    q: 'O que encontro dentro da comunidade?',
+    a: (
+      <>
+        <p>
+          A CommitPT não é um curso. É um ambiente onde o crescimento acontece através da interação,
+          da colaboração e de projetos reais.
+        </p>
+        <p>Dentro da comunidade encontras, entre outras coisas:</p>
+        <ul className="mt-2 space-y-1 list-none">
+          {[
+            'Workshops práticos sobre temas técnicos e de carreira',
+            'Calls semanais ao vivo com outros membros',
+            'Revisões de código e feedback honesto',
+            'Discussões técnicas sobre arquitetura, ferramentas e boas práticas',
+            'Projetos internos onde podes colaborar com outros membros',
+            'Recursos e materiais curados por profissionais da área',
+            'Contacto direto com engenheiros experientes',
+            'Uma comunidade ativa onde podes fazer perguntas sem julgamentos',
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2">
+              <span className="font-mono text-primary shrink-0">+</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </>
+    ),
   },
   {
     q: 'Quanto tempo preciso de dedicar por semana?',
-    a: 'O mínimo que retiras valor é com 1 a 2 horas por semana. Mas quanto mais participares, mais cresces. Não há compromisso obrigatório — apenas recomendamos participação regular para tirares o máximo partido.',
+    a: (
+      <>
+        <p>Não há um mínimo obrigatório. Cada pessoa participa ao seu próprio ritmo.</p>
+        <p>
+          Há membros que entram todos os dias, outros que aparecem algumas vezes por semana. O que
+          retiras da comunidade está diretamente relacionado com o que investes — mas essa decisão é
+          sempre tua.
+        </p>
+        <p>
+          O importante é que quando precisares de feedback, de uma perspetiva diferente ou apenas de
+          ver o que outros estão a construir, a comunidade está lá.
+        </p>
+      </>
+    ),
   },
   {
-    q: 'O que é o Whop? É seguro?',
-    a: 'O Whop é a plataforma que utilizamos para gerir membros pagos. É uma plataforma de memberships amplamente utilizada por criadores e comunidades. O pagamento é seguro e podes cancelar a qualquer momento.',
+    q: 'Como funcionam as calls e workshops?',
+    a: (
+      <>
+        <p>
+          São sessões ao vivo, com foco em temas práticos. Não há apresentações genéricas — o
+          objetivo é sempre aprender algo que possas aplicar.
+        </p>
+        <p>Os temas variam consoante o que a comunidade precisa naquele momento:</p>
+        <ul className="mt-2 space-y-1 list-none">
+          {[
+            'Discussões técnicas e de arquitetura',
+            'Revisões de código em projetos reais',
+            'Temas de carreira — entrevistas, negociação, progressão',
+            'Sessões de Q&A com engenheiros experientes',
+            'Walkthroughs de projetos dos próprios membros',
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2">
+              <span className="font-mono text-primary shrink-0">+</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-3">
+          A participação é sempre opcional. As sessões ficam gravadas para quem não conseguir estar
+          presente.
+        </p>
+      </>
+    ),
   },
   {
-    q: 'Existe uma versão gratuita?',
-    a: 'Sim. Podes entrar no nosso Discord gratuitamente e ter acesso a uma parte da comunidade. Para acesso completo a todas as sessões, recursos e canais exclusivos, podes tornar-te membro no Whop.',
+    q: 'Como sei se esta comunidade é para mim?',
+    a: (
+      <>
+        <p>
+          A CommitPT não é para toda a gente — e isso é intencional. É para pessoas que gostam de
+          aprender, de construir coisas, de fazer perguntas e de partilhar o que sabem.
+        </p>
+        <p>
+          Se tens curiosidade genuína, se queres crescer como engenheiro a longo prazo, e se estás
+          disposto a contribuir para o crescimento dos outros, vais sentir-te em casa.
+        </p>
+        <p>
+          Se procuras motivação rápida ou conteúdo para consumir passivamente, provavelmente não é o
+          sítio certo.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: 'Qual é a diferença entre a comunidade gratuita e o Commit+?',
+    a: (
+      <>
+        <p>
+          A comunidade gratuita no Discord <strong>vai continuar a existir sempre</strong>. Podes
+          entrar, fazer perguntas, conhecer pessoas e participar nas discussões sem pagar nada.
+        </p>
+        <p>O Commit+ adiciona uma camada extra para quem quer ir mais fundo:</p>
+        <ul className="mt-2 space-y-1 list-none">
+          {[
+            'Workshops práticos e calls ao vivo exclusivas',
+            'Acesso a recursos e materiais premium',
+            'Participação em projetos internos da comunidade',
+            'Interação mais próxima com a equipa e membros seniores',
+            'Mais oportunidades de aprender com outros membros',
+            'Acesso antecipado à plataforma que estamos a construir',
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2">
+              <span className="font-mono text-primary shrink-0">+</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </>
+    ),
+  },
+  {
+    q: 'Porque é que o Commit+ é pago?',
+    a: (
+      <>
+        <p>
+          O objetivo não é monetizar o acesso à comunidade. O objetivo é{' '}
+          <strong>tornar o projeto sustentável</strong> para que possa continuar a crescer.
+        </p>
+        <p>
+          Organizar workshops com qualidade, manter recursos atualizados, desenvolver a plataforma e
+          investir em iniciativas para a comunidade tem custos reais. O Commit+ é o que torna isso
+          possível.
+        </p>
+        <p>
+          Nenhum membro paga para ter acesso a uma comunidade — paga para ajudar a construir algo
+          que beneficia todos, incluindo ele próprio.
+        </p>
+      </>
+    ),
+  },
+  {
+    q: 'Posso cancelar quando quiser?',
+    a: (
+      <>
+        <p>Sim. Sem contratos, sem compromissos a longo prazo.</p>
+        <p>
+          O Commit+ funciona como uma <strong>subscrição mensal simples</strong>. Podes cancelar a
+          qualquer momento, diretamente na plataforma, sem precisares de falar com ninguém.
+        </p>
+      </>
+    ),
   },
   {
     q: 'E se não gostar?',
-    a: 'Podes cancelar a qualquer altura, sem complicações. Não há contratos nem períodos mínimos. Se não sentires valor, simplesmente deixas de ser membro.',
+    a: (
+      <>
+        <p>Podes experimentar e sair quando quiseres. Não há pressão nem complicações.</p>
+        <p>
+          Se entras, participas durante um mês e decides que não é para ti, cancelas e pronto. Não
+          te pedimos justificações nem tentamos convencer-te a ficar.
+        </p>
+        <p>
+          O que esperamos é que proves a ti próprio que vale a pena — e que fiques porque sentes
+          valor, não porque te esqueceste de cancelar.
+        </p>
+      </>
+    ),
   },
 ]
 
@@ -39,24 +206,25 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="border-t border-border bg-ink-light">
+    <section id="faq" className="border-t border-border bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mb-12 max-w-2xl">
-          <span className="font-mono text-sm font-bold text-git-amber">
-            06 // Perguntas Frequentes
+          <span className="font-mono text-sm font-bold text-warning">
+            07 // Perguntas Frequentes
           </span>
-          <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
             Tens dúvidas. Temos respostas.
           </h2>
-          <p className="mt-4 text-muted">
+          <p className="mt-4 text-muted-foreground">
             Se ainda tens alguma questão antes de entrares, é provável que esteja aqui.
           </p>
         </div>
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-0">
           {faqs.map((faq, i) => (
             <div key={i} className="border-t border-border">
-              <button
-                className="flex w-full items-center justify-between py-4 text-left text-sm font-semibold text-text-primary hover:text-git-add transition-colors"
+              <Button
+                variant="ghost"
+                className="w-full h-auto justify-between py-4 text-left rounded-none"
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 {faq.q}
@@ -64,10 +232,15 @@ export default function FAQ() {
                   size={16}
                   className={`ml-4 shrink-0 transition-transform ${open === i ? 'rotate-180' : ''}`}
                 />
-              </button>
-              {open === i && <p className="pb-4 text-sm leading-relaxed text-muted">{faq.a}</p>}
+              </Button>
+              {open === i && (
+                <div className="space-y-3 pb-5 text-sm leading-relaxed text-muted-foreground">
+                  {faq.a}
+                </div>
+              )}
             </div>
           ))}
+          <div className="border-t border-border" />
         </div>
       </div>
     </section>

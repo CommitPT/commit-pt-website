@@ -65,18 +65,18 @@ export default function ContributorCard({ contributor }: { contributor: Contribu
     contributor.website
 
   return (
-    <div className="group flex flex-col rounded-lg border border-border bg-ink-light p-6 hover:border-git-add transition-colors">
+    <div className="group flex flex-col rounded-lg border border-border bg-surface p-6 hover:border-primary transition-colors">
       <div className="mb-4 flex items-center gap-4">
         <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full border border-border">
           <Image src={avatarUrl} alt={contributor.name} fill className="object-cover" unoptimized />
         </div>
         <div className="min-w-0">
-          <h3 className="truncate font-semibold text-text-primary">{contributor.name}</h3>
-          <p className="font-mono text-xs text-git-amber">{contributor.role}</p>
+          <h3 className="truncate font-semibold text-foreground">{contributor.name}</h3>
+          <p className="font-mono text-xs text-warning">{contributor.role}</p>
         </div>
       </div>
 
-      <p className="flex-1 text-sm leading-relaxed text-muted">{contributor.bio}</p>
+      <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{contributor.bio}</p>
 
       {hasSocials && (
         <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
@@ -86,7 +86,7 @@ export default function ContributorCard({ contributor }: { contributor: Contribu
               target="_blank"
               rel="noreferrer"
               aria-label={`LinkedIn de ${contributor.name}`}
-              className="text-muted transition-colors hover:text-git-add"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               <LinkedInIcon />
             </a>
@@ -97,7 +97,7 @@ export default function ContributorCard({ contributor }: { contributor: Contribu
               target="_blank"
               rel="noreferrer"
               aria-label={`GitHub de ${contributor.name}`}
-              className="text-muted transition-colors hover:text-git-add"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               <GitHubIcon />
             </a>
@@ -108,7 +108,7 @@ export default function ContributorCard({ contributor }: { contributor: Contribu
               target="_blank"
               rel="noreferrer"
               aria-label={`Instagram de ${contributor.name}`}
-              className="text-muted transition-colors hover:text-git-add"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               <InstagramIcon />
             </a>
@@ -117,7 +117,7 @@ export default function ContributorCard({ contributor }: { contributor: Contribu
             <a
               href={`mailto:${contributor.email}`}
               aria-label={`Email de ${contributor.name}`}
-              className="text-muted transition-colors hover:text-git-add"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               <Mail size={16} />
             </a>
@@ -128,7 +128,7 @@ export default function ContributorCard({ contributor }: { contributor: Contribu
               target="_blank"
               rel="noreferrer"
               aria-label={`Website de ${contributor.name}`}
-              className="text-muted transition-colors hover:text-git-add"
+              className="text-muted-foreground transition-colors hover:text-primary"
             >
               <Globe size={16} />
             </a>

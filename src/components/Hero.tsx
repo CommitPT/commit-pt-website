@@ -1,4 +1,5 @@
-import { ArrowRight, MessageCircle, Users, Code } from 'lucide-react'
+import { buttonVariants } from '@commitpt/design-system'
+import { ArrowRight, Code, MessageCircle, Users } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -6,28 +7,30 @@ export default function Hero() {
       <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-8">
-            <div className="hero-enter-1 inline-flex items-center gap-2 rounded-full border border-border bg-ink-light px-3 py-1 font-mono text-xs text-git-add">
+            <div className="hero-enter-1 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs text-primary">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-git-add opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-git-add"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
               </span>
-              250+ programadores portugueses já dentro
+              300+ programadores portugueses já dentro
             </div>
-            <h1 className="hero-enter-2 text-4xl font-bold leading-tight tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
+            <h1 className="hero-enter-2 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               A comunidade que transforma programadores em{' '}
-              <span className="font-mono text-git-add">engenheiros de topo.</span>
+              <span className="font-mono bg-linear-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">
+                engenheiros de topo.
+              </span>
             </h1>
-            <p className="hero-enter-3 max-w-lg text-lg text-muted">
+            <p className="hero-enter-3 max-w-lg text-lg text-muted-foreground">
               Ser um engenheiro de topo não é só ser bom tecnicamente. É saber colaborar, receber
               críticas, comunicar bem e trabalhar em equipa. A CommitPT é o ambiente mais próximo de
               uma empresa real que vais encontrar — antes de estares numa.
             </p>
-            <div className="hero-enter-4 flex flex-wrap gap-4">
+            <div className="hero-enter-4 flex flex-col gap-4 sm:flex-row">
               <a
                 href="https://whop.com/commitpt-709e/commit-plus"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-md bg-git-add px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-git-add-hover"
+                className={buttonVariants({ size: 'lg' })}
               >
                 Junta-te à Comunidade
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -36,19 +39,19 @@ export default function Hero() {
                 href="https://discord.gg/yGAbprCBrT"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-border bg-ink-light px-6 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-git-add hover:text-git-add"
+                className={buttonVariants({ variant: 'outline', size: 'lg' })}
               >
                 <MessageCircle size={16} />
                 Experimenta o Discord Grátis
               </a>
             </div>
-            <div className="hero-enter-5 flex flex-wrap gap-6 text-sm text-muted">
+            <div className="hero-enter-5 flex flex-wrap gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Users size={18} className="text-git-add" />
-                <span>250+ membros ativos</span>
+                <Users size={18} className="text-primary" />
+                <span>300+ membros ativos</span>
               </div>
               <div className="flex items-center gap-2">
-                <Code size={18} className="text-git-amber" />
+                <Code size={18} className="text-warning" />
                 <span>5+ anos de experiência no mercado</span>
               </div>
             </div>
@@ -64,16 +67,19 @@ export default function Hero() {
 
 function Terminal() {
   return (
-    <div className="rounded-lg border border-border bg-ink-light shadow-2xl overflow-hidden">
-      <div className="flex items-center gap-2 border-b border-border bg-graphite px-4 py-3">
-        <div className="h-3 w-3 rounded-full bg-git-del" />
-        <div className="h-3 w-3 rounded-full bg-git-amber" />
-        <div className="h-3 w-3 rounded-full bg-git-add" />
-        <span className="ml-2 font-mono text-xs text-muted">~ sprint-2026-W25</span>
+    <div className="rounded-lg border border-border bg-surface shadow-2xl overflow-hidden">
+      <div className="flex items-center gap-2 border-b border-border bg-elevated px-4 py-3">
+        <div className="h-3 w-3 rounded-full bg-destructive" />
+        <div className="h-3 w-3 rounded-full bg-warning" />
+        <div className="h-3 w-3 rounded-full bg-primary" />
+        <span className="ml-2 font-mono text-xs text-muted-foreground">~ sprint-2026-Q3</span>
       </div>
-      <div className="p-4 font-mono text-sm leading-relaxed sm:p-6">
+      <div
+        className="p-4 text-sm leading-relaxed sm:p-6"
+        style={{ fontFamily: 'Consolas, monospace' }}
+      >
         <div className="flex gap-4">
-          <div className="flex flex-col text-right text-muted select-none">
+          <div className="flex flex-col text-right text-muted-foreground select-none">
             <span>1</span>
             <span>2</span>
             <span>3</span>
@@ -87,34 +93,34 @@ function Terminal() {
             <div>
               <span className="text-syntax-purple">const</span>{' '}
               <span className="text-syntax-blue">community</span>{' '}
-              <span className="text-text-primary">=</span>{' '}
+              <span className="text-foreground">=</span>{' '}
               <span className="text-syntax-purple">new</span>{' '}
               <span className="text-syntax-blue">CommitPT</span>
-              <span className="text-text-primary">();</span>
+              <span className="text-foreground">();</span>
             </div>
-            <div className="text-muted">{'// Engenheiros reais. Feedback real.'}</div>
+            <div className="text-muted-foreground">{'// Engenheiros reais. Feedback real.'}</div>
             <div>
-              <span className="text-git-del">-</span>{' '}
-              <span className="text-git-del">isolation</span>
-            </div>
-            <div>
-              <span className="text-git-add">+</span>{' '}
-              <span className="text-git-add">weeklyShips</span>
+              <span className="text-destructive">-</span>{' '}
+              <span className="text-destructive">isolation</span>
             </div>
             <div>
-              <span className="text-git-add">+</span>{' '}
-              <span className="text-git-add">codeReviews</span>
+              <span className="text-primary">+</span>{' '}
+              <span className="text-primary">weeklyShips</span>
             </div>
             <div>
-              <span className="text-git-add">+</span>{' '}
-              <span className="text-git-add">careerGrowth</span>
+              <span className="text-primary">+</span>{' '}
+              <span className="text-primary">codeReviews</span>
             </div>
-            <div className="text-muted">{'// commit para o teu próximo nível.'}</div>
+            <div>
+              <span className="text-primary">+</span>{' '}
+              <span className="text-primary">careerGrowth</span>
+            </div>
+            <div className="text-muted-foreground">{'// commit para o teu próximo nível.'}</div>
             <div>
               <span className="text-syntax-purple">await</span>{' '}
               <span className="text-syntax-blue">community</span>.
               <span className="text-syntax-blue">join</span>
-              <span className="text-text-primary">();</span>
+              <span className="text-foreground">();</span>
             </div>
           </div>
         </div>

@@ -1,39 +1,43 @@
 const forYou = [
-  'Continuas a começar projetos e não os acabas',
-  'Queres crescer mais rápido mas o teu ambiente não te impulsiona',
-  'Estás no início da carreira e queres acesso a engenheiros experientes',
-  'Estás a construir em público e queres uma comunidade que realmente participa',
-  'Estás farto de aprender sozinho com tutoriais que nunca acabam',
-  'Queres desenvolver soft skills — colaboração, comunicação e feedback — além das técnicas',
+  'Queres evoluir como engenheiro de software e procuras um ambiente que te desafie a crescer',
+  'Estás no início da carreira e gostavas de aprender diretamente com engenheiros experientes',
+  'Queres construir projetos, receber feedback e aprender com outras pessoas',
+  'Estás cansado de aprender sozinho através de tutoriais e procuras uma comunidade ativa',
+  'Queres desenvolver competências técnicas e também soft skills como comunicação, colaboração e feedback',
+  'Procuras uma comunidade onde as pessoas realmente participam, partilham conhecimento e se ajudam mutuamente',
+  'Queres rodear-te de pessoas ambiciosas que te motivem a evoluir',
 ]
 
 const notForYou = [
-  'Procuras um sítio para estar presente sem contribuir',
-  'Queres conteúdo motivacional sem fazer o trabalho',
+  'Procuras apenas consumir conteúdo sem participar na comunidade',
+  'Esperas que alguém faça o trabalho por ti ou te dê sempre a resposta',
+  'Queres resultados sem investir tempo e esforço na tua evolução',
+  'Só procuras conteúdo motivacional, sem intenção de colocar nada em prática',
+  'Não tens interesse em colaborar ou contribuir quando puderes',
 ]
 
 export default function ForWho() {
   return (
-    <section className="border-b border-border bg-ink">
+    <section className="border-b border-border bg-background">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="mb-4 font-mono text-xs text-git-add">{'// isto é para ti se'}</p>
+            <p className="mb-4 font-mono text-xs text-primary">{'// isto é para ti se'}</p>
             <ul className="">
               {forYou.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-muted">
-                  <span className="mt-0.5 shrink-0 font-mono text-git-add">+</span>
+                <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 shrink-0 font-mono text-primary">+</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="mb-4 font-mono text-xs text-git-del">{'// não é para ti se'}</p>
+            <p className="mb-4 font-mono text-xs text-destructive">{'// não é para ti se'}</p>
             <ul className="">
               {notForYou.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-muted">
-                  <span className="mt-0.5 shrink-0 font-mono text-git-del">-</span>
+                <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 shrink-0 font-mono text-destructive">-</span>
                   {item}
                 </li>
               ))}

@@ -71,10 +71,10 @@ interface CountdownUnitProps {
 function CountdownUnit({ value, label }: CountdownUnitProps) {
   return (
     <div className="flex flex-col items-center gap-1">
-      <span className="font-mono text-3xl font-bold tabular-nums text-text-primary sm:text-4xl">
+      <span className="font-mono text-3xl font-bold tabular-nums text-foreground sm:text-4xl">
         {String(value).padStart(2, '0')}
       </span>
-      <span className="font-mono text-xs text-muted">{label}</span>
+      <span className="font-mono text-xs text-muted-foreground">{label}</span>
     </div>
   )
 }
@@ -83,31 +83,31 @@ export default function Platform() {
   const { days, hours, minutes, seconds } = useCountdown(LAUNCH_DATE)
 
   return (
-    <section id="platform" className="border-t border-border bg-ink">
+    <section id="platform" className="border-t border-border bg-background">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-git-amber/30 bg-git-amber/10 px-3 py-1 font-mono text-xs text-git-amber">
+            <div className="inline-flex items-center gap-2 rounded-full border border-warning/30 bg-warning/10 px-3 py-1 font-mono text-xs text-warning">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-git-amber opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-git-amber"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-warning opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-warning"></span>
               </span>
               em desenvolvimento — app.commitpt.com
             </div>
 
-            <h2 className="text-3xl font-bold leading-tight text-text-primary sm:text-4xl">
-              Os membros têm <span className="font-mono text-git-add">acesso antecipado</span> à
+            <h2 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+              Os membros têm <span className="font-mono text-primary">acesso antecipado</span> à
               plataforma que estamos a construir.
             </h2>
 
-            <p className="text-lg text-muted">
+            <p className="text-lg text-muted-foreground">
               Uma plataforma de aprendizagem dedicada a programadores — roadmaps interativos, cursos
               práticos, notícias tech e acompanhamento de progresso. Entra agora e garante o acesso
               de membro fundador antes do lançamento.
             </p>
 
-            <div className="rounded-lg border border-border bg-ink-light px-6 py-5">
-              <p className="mb-4 font-mono text-xs text-muted">{'// lança em'}</p>
+            <div className="rounded-lg border border-border bg-surface px-6 py-5">
+              <p className="mb-4 font-mono text-xs text-muted-foreground">{'// lança em'}</p>
               <div className="flex items-start gap-6">
                 <CountdownUnit value={days} label="dias" />
                 <span className="mt-3 font-mono text-2xl font-bold text-border">:</span>
@@ -123,17 +123,17 @@ export default function Platform() {
               href="https://discord.gg/yGAbprCBrT"
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-md border border-git-add px-5 py-2.5 text-sm font-semibold text-git-add hover:bg-git-add hover:text-ink transition-colors"
+              className="group inline-flex items-center gap-2 rounded-md border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Segue o desenvolvimento no Discord
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
-          <div className="rounded-lg border border-border bg-ink-light p-6">
+          <div className="rounded-lg border border-border bg-surface p-6">
             <div className="mb-4 flex items-center justify-between">
-              <span className="font-mono text-xs text-muted">app.commitpt.com</span>
-              <span className="font-mono text-xs text-git-amber">
+              <span className="font-mono text-xs text-muted-foreground">app.commitpt.com</span>
+              <span className="font-mono text-xs text-warning">
                 {'// membros fundadores têm acesso'}
               </span>
             </div>
@@ -141,15 +141,15 @@ export default function Platform() {
               {features.map((f) => (
                 <div
                   key={f.label}
-                  className="flex items-center gap-3 rounded-md border border-border bg-ink px-4 py-3 text-sm text-muted"
+                  className="flex items-center gap-3 rounded-md border border-border bg-background px-4 py-3 text-sm text-muted-foreground"
                 >
-                  <f.icon size={15} className="shrink-0 text-git-add" />
+                  <f.icon size={15} className="shrink-0 text-primary" />
                   <span>{f.label}</span>
                   <span className="ml-auto font-mono text-xs text-border">{'// em breve'}</span>
                 </div>
               ))}
             </div>
-            <div className="mt-4 rounded-md border border-dashed border-border px-4 py-3 text-center font-mono text-xs text-muted">
+            <div className="mt-4 rounded-md border border-dashed border-border px-4 py-3 text-center font-mono text-xs text-muted-foreground">
               + mais — os membros influenciam o que é construído
             </div>
           </div>
