@@ -58,7 +58,7 @@ export default function Inside() {
           {problems.map((p) => (
             <div
               key={p.title}
-              className="group relative rounded-lg border border-border bg-surface p-6 hover:border-destructive transition-colors"
+              className="group relative overflow-hidden rounded-lg border border-border bg-surface p-6 hover:border-destructive transition-colors"
             >
               <div className="absolute left-0 top-0 h-full w-1 rounded-l-lg bg-destructive opacity-0 transition-opacity group-hover:opacity-100" />
               <p.icon className="mb-4 h-6 w-6 text-destructive" />
