@@ -1,13 +1,13 @@
-import {
-  TrendingUp,
-  Lightbulb,
-  BarChart2,
-  MessageCircle,
-  Map,
-  Award,
-  LucideIcon,
-} from 'lucide-react'
 import { Typography } from '@commitpt/design-system'
+import {
+  Award,
+  BarChart2,
+  Lightbulb,
+  LucideIcon,
+  Map,
+  MessageCircle,
+  TrendingUp,
+} from 'lucide-react'
 
 interface Benefit {
   icon: LucideIcon
