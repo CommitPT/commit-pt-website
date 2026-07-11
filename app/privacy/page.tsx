@@ -17,7 +17,7 @@ export default function PrivacyPage() {
         <div className="space-y-10">
           <header className="space-y-4">
             <p className="font-mono text-sm font-medium text-secondary">
-              Última atualização: 6 de Julho de 2026
+              Última atualização: 11 de Julho de 2026
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-foreground">
               Política de Privacidade
@@ -65,8 +65,10 @@ export default function PrivacyPage() {
                   código, projetos ou outros materiais que publiques voluntariamente na comunidade.
                 </li>
                 <li>
-                  <strong className="text-foreground">Dados técnicos:</strong> endereço IP, tipo de
-                  browser e dados de navegação recolhidos através de cookies técnicos essenciais.
+                  <strong className="text-foreground">Dados de análise:</strong> páginas visitadas,
+                  duração da visita, tipo de browser, sistema operativo e país de origem —
+                  recolhidos pelo Google Analytics apenas se deres consentimento para cookies de
+                  análise.
                 </li>
               </ul>
             </section>
@@ -118,6 +120,12 @@ export default function PrivacyPage() {
                 <li>
                   <strong className="text-foreground">Discord</strong> — plataforma de comunicação
                   da comunidade, sujeita à sua própria política de privacidade.
+                </li>
+                <li>
+                  <strong className="text-foreground">Google Analytics (Google LLC)</strong> —
+                  serviço de análise de tráfego web, apenas quando aceitas cookies de análise. Os
+                  dados são tratados nos servidores da Google, incluindo nos EUA, ao abrigo das
+                  cláusulas contratuais-tipo aprovadas pela Comissão Europeia.
                 </li>
               </ul>
               <p>
@@ -182,9 +190,28 @@ export default function PrivacyPage() {
             <section className="space-y-3">
               <h2 className="text-xl font-semibold text-foreground">7. Cookies</h2>
               <p>
-                O website utiliza apenas cookies técnicos essenciais para o seu correto
-                funcionamento. Não utilizamos cookies de rastreamento, publicidade ou de terceiros
-                sem o teu consentimento.
+                O website não utiliza cookies sem o teu consentimento. Quando aceitas cookies de
+                análise, o Google Analytics instala os seguintes cookies:
+              </p>
+              <ul className="list-disc space-y-2 pl-6">
+                <li>
+                  <strong className="text-foreground">_ga</strong> — identifica de forma anónima os
+                  visitantes únicos. Duração: 2 anos.
+                </li>
+                <li>
+                  <strong className="text-foreground">_ga_*</strong> — mantém o estado da sessão
+                  para o Google Analytics 4. Duração: 2 anos.
+                </li>
+              </ul>
+              <p>
+                Estes cookies recolhem informação de forma agregada e anónima sobre como os
+                visitantes utilizam o site (páginas visitadas, duração, origem do tráfego). Não são
+                utilizados para publicidade nem para identificar pessoas individualmente.
+              </p>
+              <p>
+                Podes retirar o teu consentimento a qualquer momento limpando os cookies do browser
+                ou recusando na próxima visita. Ao recusares, o Google Analytics não é carregado e
+                nenhum cookie é instalado.
               </p>
             </section>
 

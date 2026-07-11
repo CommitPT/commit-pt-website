@@ -53,7 +53,9 @@ export default function CookieConsent() {
         <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-[#151922]">
           <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">
-              Usamos cookies de análise para perceber como os visitantes interagem com o site.{' '}
+              Usamos o Google Analytics para perceber como os visitantes utilizam o site (páginas
+              visitadas, duração e origem do tráfego). Nenhum dado é recolhido sem o teu
+              consentimento e os cookies não são usados para publicidade.{' '}
               <a
                 href="/privacy"
                 className="text-foreground underline underline-offset-2 hover:text-primary transition-colors"
