@@ -41,7 +41,7 @@ function MemberCard({ member }: { member: TeamMember }) {
       <div className="mx-auto w-full max-w-[280px] lg:mx-0">
         {member.photo ? (
           <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-border">
-            <Image src={member.photo} alt={member.name} fill className="object-cover" />
+            <Image src={member.photo} alt={member.name} fill className="object-cover rotate-90" />
           </div>
         ) : (
           <div className="flex aspect-square w-full items-center justify-center rounded-lg border border-border bg-surface">
