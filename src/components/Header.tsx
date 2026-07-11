@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Logo, Typography } from '@commitpt/design-system'
+import { Button, buttonVariants, Logo, Typography } from '@commitpt/design-system'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -37,15 +37,14 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <Button
-            variant="default"
-            onClick={() => {
-              const url = 'https://whop.com/commitpt-709e/commit-plus'
-              window.open(url, '_blank')
-            }}
+          <a
+            href="https://whop.com/commitpt-709e/commit-plus"
+            target="_blank"
+            rel="noreferrer"
+            className={buttonVariants({})}
           >
             Entrar Agora
-          </Button>
+          </a>
         </nav>
         <Button
           variant="ghost"
