@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-center">
           <div className="space-y-4">
             <a
-              href="#hero"
+              href="/#hero"
               className="inline-flex items-center gap-2 font-mono text-lg font-bold text-foreground"
             >
               <Logo size={28} />
@@ -42,16 +42,16 @@ export default function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-6 border-t border-border pt-8 sm:flex-row sm:items-center">
           <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <a href="#about" className="hover:text-primary transition-colors">
+            <a href="/#about" className="hover:text-primary transition-colors">
               Benefícios
             </a>
-            <a href="#features" className="hover:text-primary transition-colors">
+            <a href="/#features" className="hover:text-primary transition-colors">
               Como funciona
             </a>
-            <a href="#team" className="hover:text-primary transition-colors">
+            <a href="/#team" className="hover:text-primary transition-colors">
               O Fundador
             </a>
-            <a href="#faq" className="hover:text-primary transition-colors">
+            <a href="/#faq" className="hover:text-primary transition-colors">
               FAQ
             </a>
             <a
