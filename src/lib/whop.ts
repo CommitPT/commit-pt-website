@@ -53,8 +53,7 @@ async function getAccessToken(): Promise<string> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ company_id: companyId, expires_at: expiresAt }),
-    // no-store is safe inside unstable_cache — does not trigger DYNAMIC_SERVER_USAGE
-    cache: 'no-store',
+    next: { revalidate: TOKEN_TTL_HOURS * 60 * 60 },
   })
 
   if (!res.ok) {
@@ -82,7 +81,6 @@ async function fetchReviews(): Promise<WhopReview[]> {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    cache: 'no-store',
   })
 
   if (!res.ok) {
