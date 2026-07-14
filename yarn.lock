@@ -170,10 +170,10 @@
     conventional-commits-parser "^7.0.0"
     picocolors "^1.1.1"
 
-"@commitpt/design-system@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@commitpt/design-system/-/design-system-0.2.0.tgz#62b3f8ee7cbe4913f7e5e3d80d8a3dc56797e387"
-  integrity sha512-o0aER/heS+/rxADuHX7r5XZXnXDPmoGStj/OYpMvk3NhnVd6cAfOQLrg51FjZppbbqSXfFRVWAyZBhi0SFzr9A==
+"@commitpt/design-system@^0.3.0":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@commitpt/design-system/-/design-system-0.2.1.tgz#e6c887ec856552dcdf98127adbc6bbed91eabc2b"
+  integrity sha512-W2AnfVVwR/JFbOxXQJZd+Qn8yqZcWQiJKhmW+oJ/eB7DI6xlsHY5rRm3xeuO1LPGZIo/lIU538FLzKTe6AKJIg==
   dependencies:
     "@radix-ui/react-avatar" "^1.2.1"
     "@radix-ui/react-checkbox" "^1.3.6"
