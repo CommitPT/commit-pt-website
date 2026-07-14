@@ -7,6 +7,9 @@ interface ExpandableTextProps {
   text: string
   lines?: number
   className?: string
+  /** pony: controlled expand for mobile tap-to-expand on the whole card */
+  expanded?: boolean
+  onExpandedChange?: (expanded: boolean) => void
 }
 
 const lineClampClasses: Record<number, string> = {
@@ -18,8 +21,19 @@ const lineClampClasses: Record<number, string> = {
   6: 'line-clamp-6',
 }
 
-export function ExpandableText({ text, lines = 3, className = '' }: ExpandableTextProps) {
-  const [expanded, setExpanded] = useState(false)
+export function ExpandableText({
+  text,
+  lines = 3,
+  className = '',
+  expanded: controlledExpanded,
+  onExpandedChange,
+}: ExpandableTextProps) {
+  const [internalExpanded, setInternalExpanded] = useState(false)
+  const expanded = controlledExpanded ?? internalExpanded
+  const setExpanded = (v: boolean) => {
+    setInternalExpanded(v)
+    onExpandedChange?.(v)
+  }
   const clampClass = lineClampClasses[lines] ?? 'line-clamp-3'
 
   return (
@@ -27,7 +41,10 @@ export function ExpandableText({ text, lines = 3, className = '' }: ExpandableTe
       <p className={`text-xs leading-5 text-gray-50 ${expanded ? '' : clampClass}`}>{text}</p>
       <button
         type="button"
-        onClick={() => setExpanded(!expanded)}
+        onClick={(e) => {
+          e.stopPropagation()
+          setExpanded(!expanded)
+        }}
         className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-primary transition-colors hover:text-primary/80"
         aria-expanded={expanded}
       >
