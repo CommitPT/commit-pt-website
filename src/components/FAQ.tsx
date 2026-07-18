@@ -1,8 +1,12 @@
 'use client'
 
-import { useId, useState } from 'react'
-import { ChevronDown, MessageCircle } from 'lucide-react'
-import { Button, buttonVariants, Typography } from '@commitpt/design-system'
+import { MessageCircle } from 'lucide-react'
+import {
+  FAQ as FAQAccordion,
+  Typography,
+  buttonVariants,
+  type FAQItem as FAQAccordionItem,
+} from '@commitpt/design-system'
 
 type Block = { type: 'p'; text: string } | { type: 'list'; items: string[] }
 
@@ -210,19 +214,7 @@ function blocksToPlainText(blocks: Block[]): string {
     .join('\n\n')
 }
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-+|-+$)/g, '')
-}
-
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0)
-  const id = useId()
-
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -236,62 +228,10 @@ export default function FAQ() {
     })),
   }
 
-  const renderFaqRow = (faq: FaqItem, i: number, isFirst: boolean, isLast: boolean) => {
-    const isOpen = open === i
-    const buttonId = `${id}-faq-btn-${i}`
-    const panelId = `${id}-faq-panel-${i}`
-    const slug = slugify(faq.q)
-
-    return (
-      <div
-        key={faq.q}
-        id={`faq-${slug}`}
-        className={`scroll-mt-24 ${!isFirst ? 'border-t border-border' : ''}`}
-      >
-        <Button
-          id={buttonId}
-          variant="ghost"
-          className={`group w-full h-auto justify-between gap-4 px-6 pt-7 pb-5 text-left transition-colors items-start rounded-none hover:bg-surface/60 ${
-            isFirst ? 'rounded-t-lg' : ''
-          } ${isLast && !isOpen ? 'rounded-b-lg' : ''}`}
-          onClick={() => setOpen(isOpen ? null : i)}
-          aria-expanded={isOpen}
-          aria-controls={panelId}
-        >
-          <span className="flex items-baseline gap-3 pr-4">
-            <span className="font-mono text-xs text-muted-foreground shrink-0" aria-hidden="true">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <span className="whitespace-normal text-wrap group-hover:text-foreground transition-colors">
-              {faq.q}
-            </span>
-          </span>
-          <ChevronDown
-            size={16}
-            className={`ml-auto mt-0.5 shrink-0 transition-transform duration-200 group-hover:text-foreground motion-reduce:transition-none ${isOpen ? 'rotate-180' : ''}`}
-          />
-        </Button>
-        <div
-          id={panelId}
-          role="region"
-          aria-labelledby={buttonId}
-          aria-hidden={!isOpen}
-          className={`grid transition-all duration-300 ease-in-out motion-reduce:transition-none ${
-            isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-          }`}
-        >
-          <div className="overflow-hidden">
-            <div className="px-6 pb-5">
-              <div className="mb-4 h-px w-10 bg-border" aria-hidden="true" />
-              <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
-                {renderBlocks(faq.blocks)}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  const items: FAQAccordionItem[] = faqs.map((faq) => ({
+    question: faq.q,
+    answer: <div className="space-y-3">{renderBlocks(faq.blocks)}</div>,
+  }))
 
   return (
     <section id="faq" className="border-t border-border">
@@ -312,9 +252,7 @@ export default function FAQ() {
             Se ainda tens alguma questão antes de entrares, é provável que esteja aqui.
           </Typography>
         </div>
-        <div className="rounded-lg border border-border bg-elevated shadow-xl shadow-black/40">
-          {faqs.map((faq, i) => renderFaqRow(faq, i, i === 0, i === faqs.length - 1))}
-        </div>
+        <FAQAccordion items={items} />
         <div className="mt-12 rounded-lg border border-border bg-surface p-8 text-center lg:p-12">
           <Typography variant="h3" className="sm:text-3xl">
             Não encontraste a tua resposta?
