@@ -1,21 +1,7 @@
 import { getWhopReviews } from '@/src/lib/whop'
 import fallbackReviews from '@/src/reviews.json'
-import { ReviewCard, Typography } from '@commitpt/design-system'
-
-const MONTHS = [
-  'janeiro',
-  'fevereiro',
-  'março',
-  'abril',
-  'maio',
-  'junho',
-  'julho',
-  'agosto',
-  'setembro',
-  'outubro',
-  'novembro',
-  'dezembro',
-]
+import ReviewScroll from '@/src/components/ReviewScroll'
+import { Typography } from '@commitpt/design-system'
 
 interface ReviewItem {
   id: string
@@ -24,30 +10,6 @@ interface ReviewItem {
   date: string
   review: string
   stars: number
-}
-
-function formatDate(raw: string): string {
-  // ISO 8601 from Whop API
-  if (raw.includes('T') || (raw.includes('-') && raw.length > 10)) {
-    const d = new Date(raw)
-    return `${d.getDate()} de ${MONTHS[d.getMonth()]} de ${d.getFullYear()}`
-  }
-  // Legacy DD-MM-YYYY from reviews.json
-  const [d, m, y] = raw.split('-').map(Number)
-  return `${d} de ${MONTHS[m - 1]} de ${y}`
-}
-
-function TestimonialCard({ t }: { t: ReviewItem }) {
-  return (
-    <ReviewCard
-      className="w-80 flex-shrink-0"
-      name={t.name}
-      memberSince={t.handle}
-      review={t.review}
-      rating={t.stars}
-      reviewDate={formatDate(t.date)}
-    />
-  )
 }
 
 export default async function SocialProof() {
@@ -73,10 +35,7 @@ export default async function SocialProof() {
     stars: Math.round(r.stars),
   }))
 
-  // Whop reviews first, hardcoded reviews after
-  const testimonials: ReviewItem[] = [...whopItems, ...hardcodedItems]
-
-  const doubled = [...testimonials, ...testimonials]
+  const items: ReviewItem[] = [...whopItems, ...hardcodedItems]
 
   return (
     <section className="border-y border-border">
@@ -95,7 +54,7 @@ export default async function SocialProof() {
               href="https://whop.com/commitpt-709e/commit-plus"
               target="_blank"
               rel="noreferrer"
-              className="text-primary underline-offset-2 hover:underline"
+              className="text-primary underline underline-offset-2"
             >
               Whop
             </a>{' '}
@@ -104,29 +63,7 @@ export default async function SocialProof() {
         </div>
       </div>
 
-      {/* Mobile: horizontal scroll */}
-      <div
-        className="flex gap-4 overflow-x-auto px-6 pb-6 lg:hidden"
-        style={{ scrollbarWidth: 'none' }}
-        tabIndex={0}
-      >
-        {testimonials.map((t) => (
-          <TestimonialCard key={t.id} t={t} />
-        ))}
-      </div>
-
-      {/* Desktop: infinite marquee */}
-      <div className="relative hidden overflow-hidden pb-28 lg:block">
-        {/* Edge fade overlays */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-linear-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-linear-to-l from-background to-transparent" />
-
-        <div className="animate-marquee pause-on-hover flex w-max gap-6 px-6">
-          {doubled.map((t, i) => (
-            <TestimonialCard key={`${t.id}-${i}`} t={t} />
-          ))}
-        </div>
-      </div>
+      <ReviewScroll items={items} />
     </section>
   )
 }
